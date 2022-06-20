@@ -1,12 +1,14 @@
 import React, { Component } from "react";
 import FormUserDetails from "./FormUserDetails";
 import FormPersonalDetails from "./FormPersonalDetails";
+import Confirm from "./Confirm";
 
 export class UserForm extends Component {
   state = {
     step: 1,
     firstName: "",
     lastName: "",
+    email: "",
     favColor: "",
     favPet: "",
     favDrink: "",
@@ -35,8 +37,9 @@ export class UserForm extends Component {
 
   render() {
     const { step } = this.state;
-    const { firstName, lastName, email, bio } = this.state;
-    const values = { firstName, lastName, email, bio };
+    const { firstName, lastName, email, favColor, favDrink, favPet } =
+      this.state;
+    const values = { firstName, lastName, email, favColor, favDrink, favPet };
     switch (step) {
       case 1:
         return (
@@ -56,7 +59,13 @@ export class UserForm extends Component {
           />
         );
       case 3:
-        return <h1>Confirm</h1>;
+        return (
+          <Confirm
+            prevStep={this.prevStep}
+            nextStep={this.nextStep}
+            values={values}
+          />
+        );
       case 4:
         return <h1>Success</h1>;
     }
