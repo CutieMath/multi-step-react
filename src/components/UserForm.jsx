@@ -7,8 +7,9 @@ export class UserForm extends Component {
     step: 1,
     firstName: "",
     lastName: "",
-    email: "",
-    bio: "",
+    favColor: "",
+    favPet: "",
+    favDrink: "",
   };
 
   // Proceed to the next step
